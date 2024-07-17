@@ -12,7 +12,7 @@ const sendMessage = async(req, res) => {
         let receiverObjectId = new mongoose.Types.ObjectId(receiverId);
 
 
-        const conversation = await Conversation.findOne({participants : {$all : [senderObjectId, receiverObjectId]}});
+        let conversation = await Conversation.findOne({participants : {$all : [senderObjectId, receiverObjectId]}});
         
         if(!conversation){
             conversation = await Conversation.create({
@@ -48,7 +48,7 @@ const sendMessage = async(req, res) => {
 
     }
     catch(e){
-        console.log("error is message controller :" , e.message);
+        console.log("error is send message controller :" , e);
         res.status(501).json({"error" : "Internal Server Error"});
     }
 }
@@ -64,9 +64,9 @@ export const getMessage = async( req, res ) => {
         }).populate("messages");
         if(!conversation){
             res.status(200).json([]);
-        }
-        
+        }else{
         res.status(200).json(conversation.messages);
+        }
     }catch(e){
         console.log("error in message controller", e.message);
         res.status(500).json({"error" : "Internal Server Error"});
