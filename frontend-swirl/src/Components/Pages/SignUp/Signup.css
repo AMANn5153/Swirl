@@ -1,0 +1,12 @@
+.signup{
+ 
+}
+
+@media (min-width :600px){
+.signup{
+    width:100vw;
+    height:fit-content;
+    display: flex;
+    flex-direction: row;  
+}
+}
