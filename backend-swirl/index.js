@@ -11,6 +11,9 @@ import connectToDB  from "./db/connection.db.js"
 import cookieParser from "cookie-parser";
 import userRouter from "./routes/user.routes.js";
 import { server, app} from "./socket/socket.js";
+import path from "path";
+
+const PORT = process.env.PORT || 3001;
 
 // Configure CORS options
 const corsOptions = {
@@ -34,9 +37,16 @@ app.use("/api/auth", router);
 
 app.use("/api/message", messageRouter);
 
+const __dirname = path.resolve();
+
+app.use(express.static(path.join(__dirname,"./client/build")))
+
+app.get('*', (req,res) => res.sendFile(path.join(__dirname, './client/build/index.html')));
+
+
 const DB = process.env.MONGODB_URI;
 
-server.listen(3001, ()=>{
+server.listen(PORT, ()=>{
     connectToDB(DB);
     console.log("connected to port 3001");
 });

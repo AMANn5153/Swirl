@@ -25,13 +25,13 @@ router.get('/google/callback', (req, res, next) => {
   passport.authenticate('google', (err, user, info) => {
     if (err) {
       console.log("Error occurred in Google authentication:", err);
-      return res.redirect(`http://localhost:3000/Login?error=${encodeURIComponent(err.message)}`);
+      return res.redirect(`http://localhost:3001/Login?error=${encodeURIComponent(err.message)}`);
     }
 
     req.logIn(user, { session: false }, (err) => {
       if (err) {
         console.log("Error occurred during login:", err);
-        return res.redirect(`http://localhost:3000/Login?error=${encodeURIComponent('An error occurred during login')}`);
+        return res.redirect(`http://localhost:3001/Login?error=${encodeURIComponent('An error occurred during login')}`);
       }
 
       // Generate JWT token and set cookie
@@ -47,7 +47,7 @@ router.get('/google/callback', (req, res, next) => {
         email: user.email,
       }));
 
-      res.redirect(`http://localhost:3000/signup?user=${userData}`);
+      res.redirect(`http://localhost:3001/signup?user=${userData}`);
     });
   })(req, res, next);
 });

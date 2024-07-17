@@ -11,7 +11,7 @@ const useUserOnline = () => {
     const conversation = async () =>{
         setLoading(true);
         try{
-            const res = await fetch('http://localhost:3001/api/user/',{
+            const res = await fetch('/api/user/',{
                 credentials:'include'
             });
             const data = await res.json();

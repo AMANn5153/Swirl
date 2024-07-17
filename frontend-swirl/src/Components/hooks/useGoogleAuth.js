@@ -12,7 +12,7 @@ export const useGoogleAuth = () => {
 
   const authenticateWithGoogle = () => {
     setLoading(true);
-    const popup = window.open("http://localhost:3001/api/auth/google", '_self', 'width=600,height=600');
+    const popup = window.open("/api/auth/google", '_self', 'width=600,height=600');
     
     if (!popup) {
       toast.error('Popup blocked. Please enable popups for this site.', {

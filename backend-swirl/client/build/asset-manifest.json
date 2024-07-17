@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7870fe51.css",
+    "main.js": "/static/js/main.c062df44.js",
+    "static/js/453.8ec2063d.chunk.js": "/static/js/453.8ec2063d.chunk.js",
+    "static/media/Logo Vedio.mp4": "/static/media/Logo Vedio.60f0b158ac4f7bcae54d.mp4",
+    "static/media/notification.mp3": "/static/media/notification.133d5fdc0129f54c2924.mp3",
+    "index.html": "/index.html",
+    "main.7870fe51.css.map": "/static/css/main.7870fe51.css.map",
+    "main.c062df44.js.map": "/static/js/main.c062df44.js.map",
+    "453.8ec2063d.chunk.js.map": "/static/js/453.8ec2063d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7870fe51.css",
+    "static/js/main.c062df44.js"
+  ]
+}
